@@ -1,25 +1,48 @@
 # Python Calculator
 
-A calculator with four operations: add, subtract, multiply, and divide.
+A calculator that adds, subtracts, multiplies, and divides two numbers.
+Division by zero raises ValueError.
 
-## Setup
+## Project initialization
 
-Open a terminal in the project folder and run:
+This project was initialized with:
 
 ```bash
-python -m venv .venv
-source .venv/bin/activate
-python -m pip install ipykernel
+uv init --name calculator
 ```
 
-Open the class notebook in VS Code and select `.venv` as its kernel.
-VS Code needs the Python and Jupyter extensions to run the notebook.
+Notebook support was added with:
 
-## Usage
+```bash
+uv add --dev ipykernel
+```
 
-The functions are in `src/calculator.py`.
+These steps are already complete.
 
-Example:
+## Setup after downloading
+
+Install uv, then open a terminal in the project folder and run:
+
+```bash
+uv sync
+```
+
+In VS Code, install the Python and Jupyter extensions.
+Open the class notebook and select this project's `.venv` as its kernel.
+
+## Project files
+
+- pyproject.toml: project settings and dependencies.
+- .python-version: project's Python version.
+- uv.lock: recorded dependency versions.
+- src/calculator/calculator.py: the four calculator functions.
+- src/calculator/__init__.py: exposes the functions and contains the starter entry point.
+- Class notebook (.ipynb): predictions, tests, results, and reflections.
+- .gitignore: excludes the environment and generated cache files from Git.
+
+## Using the calculator
+
+In the notebook, run:
 
 ```python
 from src.calculator import add
@@ -27,12 +50,24 @@ from src.calculator import add
 print(add(2, 3))
 ```
 
-Expected output: `5`.
+Expected output: 5.
 
-## Tests
+## Running the tests
 
-Run the TODO 3 cell in the class notebook.
-It checks normal calculations, negative numbers, decimals, zero,
-and division by zero.
+Restart the notebook kernel, then click Run All.
 
-Division by zero must raise a ValueError.
+The TODO 3 cell checks normal calculations, negative numbers,
+decimals, zero, and division by zero.
+
+Expected final output:
+
+```text
+Division by zero correctly rejected.
+All assertions passed.
+```
+
+## Design choice
+
+Division by zero raises ValueError so an invalid calculation
+cannot produce a misleading result.
+
