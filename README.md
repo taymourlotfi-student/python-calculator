@@ -71,3 +71,17 @@ All assertions passed.
 Division by zero raises ValueError so an invalid calculation
 cannot produce a misleading result.
 
+## Separate test file
+
+Run this command from the project folder:
+
+```bash
+uv run python -m tests.test_calculator
+```
+
+Expected output:
+
+```text
+Division by zero correctly rejected.
+All assertions passed.
+```
